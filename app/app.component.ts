@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {CoursesComponent} from './courses.component';
 import {CounterComponent} from './counter.component';
+import {HighlightDirective} from './highlight.directive';
 
 @Component({
     selector: 'my-app',
@@ -21,13 +22,13 @@ import {CounterComponent} from './counter.component';
         <input type="text" name="lastName" [(ngModel)]="lastName" (click)="getLastName()" />
 
 		<h3>Conditions</h3>
-        <br/><span *ngIf="flag">Flag is true</span>
+        <br/><span *ngIf="flag" myHighlight>Flag is true</span>
 
         <div class="app">
         	<counter></counter>
         </div>
         `,
-    directives: [CoursesComponent, CounterComponent]
+    directives: [CoursesComponent, CounterComponent, HighlightDirective]
 })
 export class AppComponent { 
 	firstName: string = 'TypeScript with Angular2';
