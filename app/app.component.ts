@@ -1,7 +1,24 @@
-import {Component} from 'angular2/core';
+import {Component, Type } from 'angular2/core';
 import {CoursesComponent} from './courses.component';
 import {CounterComponent} from './counter.component';
 import {HighlightDirective} from './highlight.directive';
+
+export class Hero {
+    id:number;
+    name:string
+}
+const HEROES: Hero[] = [
+    { id: 11, name: 'Mr. Nice' },
+    { id: 12, name: 'Narco' },
+    { id: 13, name: 'Bombasto' },
+    { id: 14, name: 'Celeritas' },
+    { id: 15, name: 'Magneta' },
+    { id: 16, name: 'RubberMan' },
+    { id: 17, name: 'Dynama' },
+    { id: 18, name: 'Dr IQ' },
+    { id: 19, name: 'Magma' },
+    { id: 20, name: 'Tornado' }
+];
 
 @Component({
     selector: 'my-app',
@@ -11,7 +28,54 @@ import {HighlightDirective} from './highlight.directive';
 	      text-align: center;
 	      padding: 25px;
 	      background: #f5f5f5;
-	    }
+	    },
+	    .selected {
+          background-color: #CFD8DC !important;
+          color: white;
+        }
+        .heroes {
+          margin: 0 0 2em 0;
+          list-style-type: none;
+          padding: 0;
+          width: 15em;
+        }
+        .heroes li {
+          cursor: pointer;
+          position: relative;
+          left: 0;
+          background-color: #EEE;
+          margin: .5em;
+          padding: .3em 0;
+          height: 1.6em;
+          border-radius: 4px;
+        }
+        .heroes li.selected:hover {
+          background-color: #BBD8DC !important;
+          color: white;
+        }
+        .heroes li:hover {
+          color: #607D8B;
+          background-color: #DDD;
+          left: .1em;
+        }
+        .heroes .text {
+          position: relative;
+          top: -3px;
+        }
+        .heroes .badge {
+          display: inline-block;
+          font-size: small;
+          color: white;
+          padding: 0.8em 0.7em 0 0.7em;
+          background-color: #607D8B;
+          line-height: 1em;
+          position: relative;
+          left: -1px;
+          top: -4px;
+          height: 1.8em;
+          margin-right: .8em;
+          border-radius: 4px 0 0 4px;
+        }
 	  `],
     template: `
         <h1>My First Angular 2 App</h1>
@@ -27,15 +91,44 @@ import {HighlightDirective} from './highlight.directive';
         <div class="app">
         	<counter></counter>
         </div>
+
+        -----------------------
+
+        <h1>{{title}}</h1>
+        <h2>My Heroes</h2>
+        <ul class="heroes">
+          <li *ngFor="let hero of heroes"
+            [class.selected]="hero === selectedHero"
+            (click)="onSelect(hero)">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+          </li>
+        </ul>
+        <div *ngIf="selectedHero">
+          <h2>{{selectedHero.name}} details!</h2>
+          <div><label>id: </label>{{selectedHero.id}}</div>
+          <div>
+            <label>name: </label>
+            <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+          </div>
+        </div>
         `,
     directives: [CoursesComponent, CounterComponent, HighlightDirective]
 })
-export class AppComponent { 
-	firstName: string = 'TypeScript with Angular2';
-	lastName: string = 'Angular2';
-	flag: boolean = true;
 
-	getLastName() {
-		console.log(this.lastName);
-	}
+
+export class AppComponent extends Type {
+    firstName:string = 'TypeScript with Angular2';
+    lastName:string = 'Angular2';
+    flag:boolean = true;
+
+    title = 'Tour of Heroes';
+    heroes = HEROES;
+    selectedHero: Hero;
+    onSelect(hero: Hero) { this.selectedHero = hero; }
+
+
+
+    getLastName() {
+        console.log(this.lastName);
+    }
 }
