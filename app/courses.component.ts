@@ -19,7 +19,7 @@ import {CoursesService} from './courses.service'
 })
 
 export class CoursesComponent {
-	title: string = 'These are the courses which were available',
+	title: string = 'These are the courses which were available';
 	courses: string[];
 
 	constructor(coursesService: CoursesService) {
