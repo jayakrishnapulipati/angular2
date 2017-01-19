@@ -9,6 +9,8 @@ import {HeroChildComponent} from "./hero-child.component";
 import {DetailsService} from './shared/services/details.service';
 import {HeroService} from "./shared/services/hero.service";
 
+import { ObservableModule } from './observable.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import {HeroService} from "./shared/services/hero.service";
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ObservableModule
   ],
   providers: [
     DetailsService,
