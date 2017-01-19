@@ -18,4 +18,9 @@ export class AppComponent {
   changeTwoWay(value) {
     console.log(value);
   }
+
+  showValues() {
+    console.log('values, ', this.oneway);
+    this.oneway = 'clicked';
+  }
 }

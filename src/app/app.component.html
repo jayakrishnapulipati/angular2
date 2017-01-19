@@ -3,16 +3,22 @@
 </h1>
 
 <!--One-way from data source to view target-->
-<input type="text" value="{{oneway}}" (change)="changeValue()" /> <br/>
-<input type="text" [ngModel]="oneway" (change)="changeValue()" />
+<input type="text" value="{{oneway}}" /> <br/> <!-- string interplocation -->
+<input type="text" [value]="oneway" /> <br/> <!-- property binding -->
+
+<input type="text" ngModel="{{oneway}}" /> <br/> <!-- string interplocation -->
+<input type="text" [ngModel]="oneway" /> <br/> <!-- property binding -->
+
 <input type="text" bind-ngModel="oneway" (change)="changeValue()" />
 
+<button (click)="showValues()"></button>
 <br/>
 <br/>
 <br/>
 <hr>
 <!--Two-way-->
-<input type="text" bindon-ngModel="twoway" (change)="changeTwoWay(twoway)"/>
+<input type="text" bindon-ngModel="twoway" (change)="changeTwoWay(twoway)"/><br/>
+<input type="text" [(ngModel)]="twoway" (change)="changeTwoWay(twoway)"/>
 <br/>
 <br/>
 <br/>
