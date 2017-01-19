@@ -1,3 +1,15 @@
 <h1>
   {{title}}
 </h1>
+
+<!--One-way from data source to view target-->
+<input type="text" value="{{oneway}}" (change)="changeValue()" /> <br/>
+<input type="text" [ngModel]="oneway" (change)="changeValue()" />
+<input type="text" bind-ngModel="oneway" (change)="changeValue()" />
+
+<br/>
+<br/>
+<br/>
+<hr>
+<!--Two-way-->
+<input type="text" bindon-ngModel="twoway" (change)="changeTwoWay(twoway)"/>
