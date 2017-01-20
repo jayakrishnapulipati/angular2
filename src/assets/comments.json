@@ -1,0 +1,22 @@
+[
+    {
+      "id": "123123123",
+      "author": "JK",
+      "text": "About JavaScript"
+    },
+    {
+      "id": "123123134",
+      "author": "JK",
+      "text": "About AngularJS"
+    },
+    {
+      "id": "1231231656",
+      "author": "JK",
+      "text": "About Angular 2"
+    },
+    {
+      "id": "1231231234234",
+      "author": "JK",
+      "text": "About Java"
+    }
+]

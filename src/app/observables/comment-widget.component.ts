@@ -4,11 +4,18 @@ import {Component} from '@angular/core';
   selector: 'comment-widget',
   template: `
     <div>
-      jk
         <comment-form [listId]="listId" [editId]="editId"></comment-form>
-        <!--<comment-list [listId]="listId" [editId]="editId"></comment-list>-->
+        <comment-list [listId]="listId" [editId]="editId"></comment-list>
     </div>
-  `
+  `,
+  styles: [
+    `
+    div {
+      width: 500px;
+      margin: 0 auto;
+    }
+    `
+  ]
 })
 export class CommentWidgetComponent {
   // Event tracking properties
