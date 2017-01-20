@@ -5,14 +5,20 @@ import { HttpModule } from '@angular/http';
 
 import { CommentWidgetComponent } from './observables/comment-widget.component';
 import {CommentFormComponent} from "./observables/comment-form.component";
+import {CommentListComponent} from "./observables/comment-list.component";
+import {CommentBoxComponent} from "./observables/comment-box.component";
 @NgModule({
   declarations: [
     CommentWidgetComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    CommentListComponent,
+    CommentBoxComponent
   ],
   exports: [
     CommentWidgetComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    CommentListComponent,
+    CommentBoxComponent
   ],
   imports: [
     BrowserModule,

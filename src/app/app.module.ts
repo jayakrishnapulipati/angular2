@@ -10,6 +10,9 @@ import {DetailsService} from './shared/services/details.service';
 import {HeroService} from "./shared/services/hero.service";
 
 import { ObservableModule } from './observable.module';
+import {CommentService} from "./shared/services/comment.service";
+
+import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,13 @@ import { ObservableModule } from './observable.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ObservableModule
+    ObservableModule,
+    AlertModule
   ],
   providers: [
     DetailsService,
-    HeroService
+    HeroService,
+    CommentService
   ],
   bootstrap: [AppComponent]
 })
