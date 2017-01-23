@@ -6,7 +6,7 @@ import {EmitterService} from "../shared/services/emitter.service";
 @Component({
   selector: 'comment-list',
   template: `
-    <comment-box [editId]="editId" [listId]="listId" *ngFor="let comment of comments" [comment]="comment"></comment-box>
+    <comment-box [editId]="editId" [listId]="listId" (passCommentInfo)="onShowCommentInfo($event)" *ngFor="let comment of comments" [comment]="comment"></comment-box>
   `
 })
 export class CommentListComponent implements OnInit, OnChanges{
@@ -29,6 +29,11 @@ export class CommentListComponent implements OnInit, OnChanges{
 
   ngOnChanges() {
     EmitterService.get(this.listId).subscribe((comments: Comment[]) => this.loadComments());
+  }
+
+  onShowCommentInfo(data) {
+    console.log(data);
+    EmitterService.get(this.listId).emit(data);
   }
 
 }

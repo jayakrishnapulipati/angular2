@@ -49,6 +49,7 @@ export class CommentFormComponent {
   }
 
   ngOnChanges() {
+    EmitterService.get(this.listId).subscribe(value => this.model = value);
     // Listen to the 'edit'emitted event so as populate the model
     // with the event payload
     EmitterService.get(this.editId).subscribe((comment:Comment) => {

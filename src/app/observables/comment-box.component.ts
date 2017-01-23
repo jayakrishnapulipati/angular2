@@ -24,10 +24,12 @@ export class CommentBoxComponent {
 
   @Input() comment: Comment;
   @Input() listId: string;
-  @Input() editId:string;
+  @Input() editId: string;
 
+  @Output() passCommentInfo = new EventEmitter();
   editComment() {
-    EmitterService.get(this.listId).emit(this.comment);
+    // EmitterService.get(this.listId).emit(this.comment);
+    this.passCommentInfo.emit(this.comment);
   }
 
   deleteComment(commentId) {
