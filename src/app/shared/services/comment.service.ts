@@ -34,4 +34,8 @@ export class CommentService {
 
     return this.http.delete(this.URL +'/'+id).map( (res: Response) => this.comments);
   }
+
+  updateComment(data) {
+    return this.http.put(this.URL +'/'+data.id, data).map( (res: Response) => res.json());
+  }
 }

@@ -34,22 +34,30 @@ export class CommentFormComponent {
   private editing = false;
 
   submitComment() {
-    let commentOpetation: Observable<Comment[]>;
+    let commentOperation: Observable<Comment[]>;
 
     if (!this.editing) {
       // Add
-      commentOpetation = this.commentService.addComment(this.model)
+      commentOperation = this.commentService.addComment(this.model);
     } else {
       // Update
+      commentOperation = this.commentService.updateComment(this.model);
     }
 
-    commentOpetation.subscribe(comments => {
+    commentOperation.subscribe(comments => {
       console.log('comments', comments);
+      EmitterService.get(this.listId).emit(comments);
+      this.model = new Comment(new Date(), '', '');
+      // Switch editing status
+      if(this.editing) this.editing = !this.editing;
     })
   }
 
   ngOnChanges() {
-    EmitterService.get(this.listId).subscribe(value => this.model = value);
+    EmitterService.get(this.listId).subscribe(value => {
+      this.model = value;
+      this.editing = true;
+    });
     // Listen to the 'edit'emitted event so as populate the model
     // with the event payload
     EmitterService.get(this.editId).subscribe((comment:Comment) => {
