@@ -10,6 +10,8 @@ import {DetailsService} from './shared/services/details.service';
 import {HeroService} from "./shared/services/hero.service";
 
 import { ObservableModule } from './observable.module';
+import { FormModule } from './forms.module';
+
 import {CommentService} from "./shared/services/comment.service";
 
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
@@ -25,7 +27,8 @@ import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
     FormsModule,
     HttpModule,
     ObservableModule,
-    AlertModule
+    AlertModule,
+    FormModule
   ],
   providers: [
     DetailsService,

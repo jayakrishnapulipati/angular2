@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Company Information</h1>
+  <form>
+    <div class="form-group">
+      <label for="companyName">CompanyName: </label>
+      <input type="text" id="companyName"
+             name="companyName" class="form-control"
+             [(ngModel)]="company.companyName"
+             required/>
+    </div>
+    <div class="form-group">
+      <label for="address1">Address1: </label>
+      <input type="text" id="address1"
+             name="address1" class="form-control"
+             [(ngModel)]="company.address1"
+             required/>
+    </div>
+    <div class="form-group">
+      <label for="address2">Address2: </label>
+      <input type="text" id="address2"
+             [(ngModel)]="company.address2"
+             name="address2" class="form-control"
+             required/>
+    </div>
+    <div class="form-group">
+      <label for="address2">Country: </label>
+      <select class="form-control">
+        <option id="country" name="country" *ngFor="let country of countries" [value]="country">{{country.key}}</option>
+      </select>
+    </div>
+
+    <button type="button" (click)="cancelCompanyInfo()">Cancel</button>
+    <button type="button" class="btn btn-success" (click)="saveCompanyInfo()">Save</button>
+  </form>
+</div>
