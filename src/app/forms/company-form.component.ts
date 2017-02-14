@@ -8,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class CompanyFormComponent implements OnInit{
   company = {};
   countries;
+  isEmties;
 
   saveCompanyInfo() {
     console.log(this.company);
@@ -18,5 +19,9 @@ export class CompanyFormComponent implements OnInit{
       {key: 'US', value:'US'},
       {key: 'CA', value:'CA'}
     ]
+  }
+
+  validateForEmptySpaces(val) {
+    this.isEmties = val.trim().length === 0 ? true : false;
   }
 }

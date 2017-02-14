@@ -1,12 +1,18 @@
 <div class="container">
   <h1>Company Information</h1>
   <form>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{ 'has-error': !companyName.valid || isEmties}">
       <label for="companyName">CompanyName: </label>
+      <!--(keydown.space)="$event.preventDefault()"-->
       <input type="text" id="companyName"
              name="companyName" class="form-control"
              [(ngModel)]="company.companyName"
+             #companyName="ngModel"
+             (keyup)="validateForEmptySpaces(company.companyName)"
              required/>
+      <div *ngIf="!companyName.valid || isEmties">
+        companyName required
+      </div>
     </div>
     <div class="form-group">
       <label for="address1">Address1: </label>
@@ -23,9 +29,9 @@
              required/>
     </div>
     <div class="form-group">
-      <label for="address2">Country: </label>
-      <select class="form-control">
-        <option id="country" name="country" *ngFor="let country of countries" [value]="country">{{country.key}}</option>
+      <label for="country">Country: </label>
+      <select class="form-control" id="country" name="country" [(ngModel)]="company.conutry">
+        <option *ngFor="let country of countries" [value]="country.value">{{country.key}}</option>
       </select>
     </div>
 
