@@ -1,0 +1,26 @@
+template driven forms
+
+we could not able to test the form validation logic from end to end.
+for larger forms it's really hard to find out the error which it was occured
+    and may take time for to find out the solution.
+the form elements model will be set automatically using the ng-model directive and
+    we can keep the reference to respective form elements as well as @ the form level
+	for to find out the form states.
+
+
+
+model/reactve driven forms
+
+we able to test the form validation logic from end to end.
+for larger forms it's easy to find out the error which it was occured
+    and may take time for to find out the solution.
+There are two ways of applying validations
+   using low level API called formgroups and formcontrols
+   using high level API	called formbuilders
+
+   for to use these two types of validations have to import reactiveFormsModule,
+   formGroup, formControl and Validatators respectively.
+
+For this the model have to set by ourselfs using the formgroup and builders.
+
+
