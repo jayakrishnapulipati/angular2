@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CompanyFormComponent } from './forms/company-form.component';
 import { EmployeeFormComponent } from "./forms/employee-form.component";
-
+import { MyDatePickerModule } from 'mydatepicker';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { EmployeeFormComponent } from "./forms/employee-form.component";
   imports: [
     FormsModule,
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MyDatePickerModule
   ],
   providers: []
 })
