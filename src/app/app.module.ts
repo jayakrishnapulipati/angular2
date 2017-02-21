@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,8 @@ import {CommentService} from "./shared/services/comment.service";
 
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
+import { TrimValueAccessorModule } from 'ng-trim-value-accessor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
     HttpModule,
     ObservableModule,
     AlertModule,
-    FormModule
+    FormModule,
+    TrimValueAccessorModule,
+    ReactiveFormsModule
   ],
   providers: [
     DetailsService,

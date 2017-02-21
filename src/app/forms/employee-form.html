@@ -1,0 +1,18 @@
+<form [formGroup]="registerForm" (ngSubmit)="save()">
+  <label>Firstname:</label>
+  <input type="text" formControlName="firstname">
+
+  <label>Lastname:</label>
+  <input type="text" formControlName="lastname">
+
+  <label>Street:</label>
+  <input type="text" formControlName="street">
+
+  <label>Zip:</label>
+  <input type="text" formControlName="zip">
+
+  <label>City:</label>
+  <input type="text" formControlName="city">
+{{registerForm.valid}}
+  <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+</form>
