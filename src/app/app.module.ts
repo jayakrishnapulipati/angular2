@@ -21,13 +21,15 @@ import { TrimValueAccessorModule } from 'ng-trim-value-accessor';
 import { EmployeeComponent } from './manage-employee/employee.component';
 
 import { EmployeeService } from './shared/services/employee.service';
+import { SearchComponent } from './manage-employee/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroPatentComponent,
     HeroChildComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
