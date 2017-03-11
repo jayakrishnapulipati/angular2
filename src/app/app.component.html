@@ -1,13 +1,14 @@
+<!--
 <h1>
   {{title}}
 </h1>
 
-<!--One-way from data source to view target-->
-<input type="text" value="{{oneway}}" /> <br/> <!-- string interplocation -->
-<input type="text" [value]="oneway" /> <br/> <!-- property binding -->
+&lt;!&ndash;One-way from data source to view target&ndash;&gt;
+<input type="text" value="{{oneway}}" /> <br/> &lt;!&ndash; string interplocation &ndash;&gt;
+<input type="text" [value]="oneway" /> <br/> &lt;!&ndash; property binding &ndash;&gt;
 
-<input type="text" ngModel="{{oneway}}" /> <br/> <!-- string interplocation -->
-<input type="text" [ngModel]="oneway" /> <br/> <!-- property binding -->
+<input type="text" ngModel="{{oneway}}" /> <br/> &lt;!&ndash; string interplocation &ndash;&gt;
+<input type="text" [ngModel]="oneway" /> <br/> &lt;!&ndash; property binding &ndash;&gt;
 
 <input type="text" bind-ngModel="oneway" (change)="changeValue()" />
 
@@ -16,7 +17,7 @@
 <br/>
 <br/>
 <hr>
-<!--Two-way-->
+&lt;!&ndash;Two-way&ndash;&gt;
 <input type="text" bindon-ngModel="twoway" (change)="changeTwoWay(twoway)"/><br/>
 <input type="text" [(ngModel)]="twoway" (change)="changeTwoWay(twoway)"/>
 <br/>
@@ -40,3 +41,5 @@
 <br/>
 <hr>
 <employee-form></employee-form>
+-->
+<employee></employee>

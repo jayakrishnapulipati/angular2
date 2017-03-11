@@ -3,10 +3,7 @@
 </div>
 <hr>
 <div>
-<div class="searchbox pull-right">
-  <input type="text" name="search" #termValue [(ngModel)]="userInput" placeholder="search Employees...." id="search">
-  <i class="glyphicon glyphicon-search search-icon"></i>
-</div>
+<search [employeeData]="mainEmployeeData" (notify)="filteredEmployeeData($event)"></search>
   <div class="togglelabel pull-right"><label><h6 class="text-right">Show Terminated</h6><h6 class="text-right">Employees</h6></label></div>
   <label class="switch pull-right">
     <input type="checkbox"  [(ngModel)]="isChecked" (click)="showTerminatedEmployees(!isChecked);">
@@ -49,6 +46,9 @@
       <td>{{item.Location}}</td>
       <td>{{item.ServiceDate}}</td>
       <td>{{item.DirectManager}}</td>
+    </tr>
+    <tr *ngIf="!employeeData.length">
+      No Records Found
     </tr>
     </tbody>
   </table>
