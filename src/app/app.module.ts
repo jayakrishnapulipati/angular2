@@ -18,11 +18,16 @@ import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { TrimValueAccessorModule } from 'ng-trim-value-accessor';
 
+import { EmployeeComponent } from './manage-employee/employee.component';
+
+import { EmployeeService } from './shared/services/employee.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeroPatentComponent,
-    HeroChildComponent
+    HeroChildComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import { TrimValueAccessorModule } from 'ng-trim-value-accessor';
   providers: [
     DetailsService,
     HeroService,
-    CommentService
+    CommentService,
+    EmployeeService
   ],
   bootstrap: [AppComponent]
 })

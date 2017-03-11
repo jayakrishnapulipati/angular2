@@ -1,0 +1,36 @@
+{
+    "data": [
+        {
+            "Position": "Senior Manager",
+            "Status": "Active",
+            "Department": "Development",
+            "Location": "Hyderabad",
+            "ServiceDate": "2017-03-13",
+            "DirectManager": "JK"
+        },
+        {
+            "Position": "Senior Manager",
+            "Status": "Active",
+            "Department": "Development",
+            "Location": "Hyderabad",
+            "ServiceDate": "2017-03-13",
+            "DirectManager": "JK"
+        },
+        {
+            "Position": "Senior Manager",
+            "Status": "Active",
+            "Department": "Development",
+            "Location": "Hyderabad",
+            "ServiceDate": "2017-03-13",
+            "DirectManager": "JK"
+        },
+        {
+            "Position": "Senior Manager",
+            "Status": "Active",
+            "Department": "Development",
+            "Location": "Hyderabad",
+            "ServiceDate": "2017-03-13",
+            "DirectManager": "JK"
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+<div class="heading">
+  <h2>Manage Employees</h2>
+</div>
+<hr>
+<div>
+<div class="searchbox pull-right">
+  <input type="text" name="search" #termValue [(ngModel)]="userInput" placeholder="search Employees...." id="search">
+  <i class="glyphicon glyphicon-search search-icon"></i>
+</div>
+  <div class="togglelabel pull-right"><label><h6 class="text-right">Show Terminated</h6><h6 class="text-right">Employees</h6></label></div>
+  <label class="switch pull-right">
+    <input type="checkbox"  [(ngModel)]="isChecked" (click)="showTerminatedEmployees(!isChecked);">
+    <div class="slider round"></div>
+  </label>
+</div>
+
+
+<div class="panel panel-default" id="employeetable">
+  <table class="empTable">
+<thead>
+    <tr>
+      <th> EmployeeName</th>
+      <th> Position
+      </th>
+      <th>
+        Status
+      </th>
+      <th>
+        Department
+      </th>
+      <th>
+        Location
+      </th>
+      <th>
+        ServiceDate
+      </th>
+      <th>
+        DirectManager
+      </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of employeeData" >
+      <td><span>{{item.EmployeeName}}</span><sub><span class="empid">{{item.EmployeeId}}</span></sub></td>
+      <td>{{item.Position}}</td>
+      <td>{{item.Status}}</td>
+      <td>{{item.Department}}</td>
+      <td>{{item.Location}}</td>
+      <td>{{item.ServiceDate}}</td>
+      <td>{{item.DirectManager}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+<div class="pagination pull-right">
+  <button [disabled]="true"  class="btn btn-default btn-sm glyphicon glyphicon-triangle-left pull-left"></button>
+  <button  class="btn btn-default btn-sm middlebtn pull-left">{{employeeData.length}} of {{mainEmployeeData.length}}</button>
+  <button [disabled]="employeeData.length == mainEmployeeData.length" (click)="showMore()"  class="btn btn-default btn-sm glyphicon glyphicon-triangle-right pull-left"></button>
+</div>
