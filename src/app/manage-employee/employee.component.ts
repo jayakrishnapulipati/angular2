@@ -11,11 +11,9 @@ export class EmployeeComponent implements OnInit {
     isChecked:boolean;
     employeeData:any = [];
     mainEmployeeData: any = [];
-    searchedEmployeeData: any = [];
 
     itemsPerpage:number = 5;
     incrementCount:number = 5;
-    isFromSearch: boolean = false;
     constructor(private employeeService: EmployeeService) {
 
     }
@@ -128,13 +126,8 @@ export class EmployeeComponent implements OnInit {
 
 
     showMore() {
-       /* if (this.isFromSearch) {
-          let temp = this.searchedEmployeeData.slice(this.employeeData.length, this.employeeData.length + this.incrementCount);
-          this.employeeData = this.employeeData.concat(temp);
-        } else {*/
-          let temp = this.mainEmployeeData.slice(this.employeeData.length, this.employeeData.length + this.incrementCount);
-          this.employeeData = this.employeeData.concat(temp);
-        // }
+        let temp = this.mainEmployeeData.slice(this.employeeData.length, this.employeeData.length + this.incrementCount);
+        this.employeeData = this.employeeData.concat(temp);
     }
 
     filterTerminatedEmployees() {
@@ -149,7 +142,6 @@ export class EmployeeComponent implements OnInit {
     }
 
     filteredEmployeeData(obj) {
-      this.isFromSearch = obj.bool;
       if (obj.bool && obj.data.length) {
         this.mainEmployeeData = obj.data;
         this.employeeData = obj.data.slice(0, this.itemsPerpage);
