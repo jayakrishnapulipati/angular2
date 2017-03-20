@@ -14,12 +14,14 @@ export class EmployeeComponent implements OnInit {
 
     itemsPerpage:number = 5;
     incrementCount:number = 5;
-    isFromSearch: boolean = false;
     constructor(private employeeService: EmployeeService) {
 
     }
 
     ngOnInit() {
+        /*this.employeeService.getEmployees().subscribe(function (res) {
+            console.log(res);
+        })*/
         this.employeeData = [
             {
                 "Position": "Senior Manager",
@@ -122,6 +124,7 @@ export class EmployeeComponent implements OnInit {
         this.employeeData = this.employeeData.slice(0, this.itemsPerpage);
     }
 
+
     showMore() {
         let temp = this.mainEmployeeData.slice(this.employeeData.length, this.employeeData.length + this.incrementCount);
         this.employeeData = this.employeeData.concat(temp);
@@ -139,19 +142,18 @@ export class EmployeeComponent implements OnInit {
     }
 
     filteredEmployeeData(obj) {
-        this.isFromSearch = obj.bool;
-        if (obj.bool && obj.data.length) {
-          this.mainEmployeeData = obj.data;
-          this.employeeData = obj.data.slice(0, this.itemsPerpage);
-        }
+      if (obj.bool && obj.data.length) {
+        this.mainEmployeeData = obj.data;
+        this.employeeData = obj.data.slice(0, this.itemsPerpage);
+      }
 
-        if (obj.bool && obj.data.length === 0) {
-          this.employeeData = [];
-          this.mainEmployeeData = [];
-        }
+      if (obj.bool && obj.data.length === 0) {
+        this.employeeData = [];
+        this.mainEmployeeData = [];
+      }
 
-        if (!obj.bool){
-          this.ngOnInit();
-        }
+      if (!obj.bool){
+        this.ngOnInit();
+      }
     }
 }
