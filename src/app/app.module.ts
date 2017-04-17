@@ -23,13 +23,17 @@ import { EmployeeComponent } from './manage-employee/employee.component';
 import { EmployeeService } from './shared/services/employee.service';
 import { SearchComponent } from './manage-employee/search.component';
 
+// directives
+import { HighlightDirective } from './shared/directives/highlight.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeroPatentComponent,
     HeroChildComponent,
     EmployeeComponent,
-    SearchComponent
+    SearchComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
