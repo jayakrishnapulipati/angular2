@@ -1,5 +1,4 @@
-<!--
-<h1>
+<!--<h1>
   {{title}}
 </h1>
 
@@ -41,11 +40,22 @@
 <br/>
 <hr>
 <employee-form></employee-form>
--->
-<!--<employee></employee>-->
+<employee></employee>
 
-<!-- Directives -->
+&lt;!&ndash; Directives &ndash;&gt;
 
 <h1>My First Attribute Directive</h1>
-<p jkHighlight>Highlight me!</p>
+<p jkHighlight highlightColor="yellow">Highlight me!</p>-->
 
+<!--<p [jkHighlight]="color">Highlighted in yellow</p>-->
+<!--<p jkHighlight [highlightColor]="'orange'">Highlighted in orange</p>-->
+
+<div>
+  <h1>My Application</h1>---{{items.length}}{{earningCodes}}{{data.length}}
+  <button (click)="add()">Add</button>
+  <div *ngFor="let itemValue of items; let modelIndex = index">
+    <select [(ngModel)]="data[modelIndex]" (change)="trackChanges(data, data[modelIndex])">
+      <option *ngFor="let item of earningCodes | arrayDiff:data:data[modelIndex]" [ngValue]="item">{{item}}</option>
+    </select>
+  </div>
+</div>

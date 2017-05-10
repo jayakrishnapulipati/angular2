@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import {AppComponent, ArrayDiffPipe} from './app.component';
 import {HeroPatentComponent} from "./hero-parent.component";
 import {HeroChildComponent} from "./hero-child.component";
 import {DetailsService} from './shared/services/details.service';
@@ -33,7 +33,8 @@ import { HighlightDirective } from './shared/directives/highlight.directive';
     HeroChildComponent,
     EmployeeComponent,
     SearchComponent,
-    HighlightDirective
+    HighlightDirective,
+    ArrayDiffPipe
   ],
   imports: [
     BrowserModule,

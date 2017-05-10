@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, PipeTransform, Pipe} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,18 @@ export class AppComponent {
 
   twoway = 'Two way binding';
 
+  color: String = 'yellow';
+
+  data: Array<any> = [];
+
+  public items = [1];
+
+  earningCodes = [1, 2, 3, 4, 5];
+
+  add() {
+    this.items.push(this.items.length + 1);
+  }
+
   changeValue(value) {
     console.log(value);
   }
@@ -22,5 +34,40 @@ export class AppComponent {
   showValues() {
     console.log('values, ', this.oneway);
     this.oneway = 'clicked';
+  }
+
+  trackChanges(array, diff) {
+    var i, item,
+      newArray = [],
+      exception = Array.prototype.slice.call(arguments, 2);
+    if (array && Array.isArray(array)) {
+      for (i = 0; i < array.length; i++) {
+        item = array[i];
+        if (diff.indexOf(item) < 0 || exception.indexOf(item) >= 0) {
+          newArray.push(item);
+        }
+      }
+    }
+    console.log(newArray, "newArray");
+  }
+}
+
+@Pipe({name: 'arrayDiff'})
+export class ArrayDiffPipe implements PipeTransform {
+  transform(array: Array<any>, diff: Array<any>): Array<any> {
+    var i, item,
+      newArray = [],
+      exception = Array.prototype.slice.call(arguments, 2);
+    if (array && Array.isArray(array)) {
+      for (i = 0; i < array.length; i++) {
+        item = array[i];
+        if (diff.indexOf(item) < 0 || exception.indexOf(item) >= 0) {
+          newArray.push(item);
+        }
+      }
+    }
+    console.log(newArray, "newArray");
+    return newArray;
+
   }
 }
