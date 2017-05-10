@@ -35,24 +35,9 @@ export class AppComponent {
     console.log('values, ', this.oneway);
     this.oneway = 'clicked';
   }
-
-  trackChanges(array, diff) {
-    var i, item,
-      newArray = [],
-      exception = Array.prototype.slice.call(arguments, 2);
-    if (array && Array.isArray(array)) {
-      for (i = 0; i < array.length; i++) {
-        item = array[i];
-        if (diff.indexOf(item) < 0 || exception.indexOf(item) >= 0) {
-          newArray.push(item);
-        }
-      }
-    }
-    console.log(newArray, "newArray");
-  }
 }
 
-@Pipe({name: 'arrayDiff'})
+@Pipe({name: 'arrayDiff', pure: false})
 export class ArrayDiffPipe implements PipeTransform {
   transform(array: Array<any>, diff: Array<any>): Array<any> {
     var i, item,
