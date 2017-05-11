@@ -36,6 +36,10 @@ export class AppComponent {
     this.oneway = 'clicked';
   }
 }
+/**
+ * http://stackoverflow.com/questions/34456430/ngfor-doesnt-update-data-with-pipe-in-angular2
+ * for to notice the diff between stateless and statefull pipes.
+ */
 
 @Pipe({name: 'arrayDiff', pure: false})
 export class ArrayDiffPipe implements PipeTransform {
